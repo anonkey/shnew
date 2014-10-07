@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 05:21:00 by tseguier          #+#    #+#             */
-/*   Updated: 2014/10/07 19:01:01 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/07 19:35:45 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@
 # define TOK_EXPR (TOFLAG(tok_cmd) | TOFLAG(tok_cmdarg) | TOFLAG(tok_userinput) | TOFLAG(tok_filename))
 # define TOK_LREDIR (TOFLAG(tok_lredir) | TOFLAG(tok_llredir) | TOFLAG(tok_lllredir))
 # define TOK_RREDIR (TOFLAG(tok_rredir) | TOFLAG(tok_rrredir))
+# define TOK_REDIR (TOK_LREDIR | TOK_RREDIR)
 # define TOK_LISTSEP (TOFLAG(tok_and) | TOFLAG(tok_or))
 # define TOK_TERMSEP (TOFLAG(tok_semicol) | TOFLAG(tok_nl) | TOFLAG(tok_bg))
+# define TOK_OP (TOK_REDIR | TOK_LISTSEP | TOK_TERMSEP | TOFLAG(tok_pipe))
 typedef struct		s_def
 {
 	char			mark[OP_MAX_LEN];
